@@ -49,7 +49,7 @@ def task4():
 def task5():
     h = float(input("введите h\n"))
     v = float(input("введите v\n"))
-    g = 9.8
+    g = 9.8066
     vk = (v ** 2 + 2 * g * h) ** (1 / 2)
     t = (vk - v) / 2
     print("t = ", "{:.4}".format(t))
