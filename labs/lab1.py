@@ -68,7 +68,9 @@ def task7():
     A = float(input("введите A\n"))
     B = float(input("введите B\n"))
     C = float(input("введите C\n"))
-    if not (A >= -10 and A <= 10 and A != 0 and B >= -10 and B <= 10 and C >= -10 and C <= 10):
+    if not (A >= -10 and A <= 10 and A != 0 and 
+              B >= -10 and B <= 10 and 
+              C >= -10 and C <= 10): 
         print("Введены некоректные данные\n")
     else:
         D = B ** 2 - 4 * A * C
@@ -98,7 +100,7 @@ def task8():
 def task9():
     credit = float(input("введите сумму кредита\n"))
     rate = float(input("введите ставку кредита в % годовых\n"))
-    summ = str(credit / 100 * rate)
+    summ = (credit / 100 * rate)
     print("Сумма начисленных процентов = ", "{:.4}".format(summ))
 
 
