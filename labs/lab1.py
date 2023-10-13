@@ -17,7 +17,7 @@ def task1():
     b3 = (abs(y)) ** (1 / 3)
     b4 = math.cos(b3)
     b = b2 + b4 + (x ** (1 / 3)) + (y ** (1 / 4))
-    print("b = ", "{:.4}".format(b))
+    print("b = {:.4}".format(b))
 
 
 def task2():
@@ -27,7 +27,7 @@ def task2():
     c = 2
 
     f = ((x + a) ** (1 / 2)) + ((x ** 2 + b) / x)
-    print("f(x) = ", "{:.4}".format(f))
+    print("f(x) = {:.4}".format(f))
 
 
 def task3():
@@ -35,7 +35,7 @@ def task3():
     f1 = math.sin(math.cos(x))
     f2 = math.log(x + 1)
     f = f1 / f2
-    print("f(x) = ", "{:.4}".format(f))
+    print("f(x) = {:.4}".format(f))
 
 
 def task4():
@@ -43,7 +43,7 @@ def task4():
     b = float(input("введите b\n"))
     c = float(input("введите c\n"))
     summ = 4 * (((a ** 2) * (b ** 2) * (c ** 2)) ** (1/2))
-    print("sum = ", "{:.4}".format(summ))
+    print("sum = {:.4}".format(summ))
 
 
 def task5():
@@ -52,7 +52,7 @@ def task5():
     g = 9.8066
     vk = (v ** 2 + 2 * g * h) ** (1 / 2)
     t = (vk - v) / 2
-    print("t = ", "{:.4}".format(t))
+    print("t = {:.4}".format(t))
 
 
 def task6():
@@ -61,7 +61,7 @@ def task6():
     k = float(input("введите сторону k\n"))
     a = (k * math.sin(math.radians(alpha))) / math.sin(math.radians(beta))
     s = 0.5 * k * a * math.sin(math.radians(180 - (alpha + beta)))
-    print("s = ", "{:.4}".format(s))
+    print("s = {:.4}".format(s))
  
 
 def task7():
@@ -80,11 +80,11 @@ def task7():
         x1 = (-B + D ** (1/2)) / (2 * A)
         x2 = (-B - D ** (1/2)) / (2 * A)
         if (x1 >= x2):
-            print("x1 = ", "{:.4}".format(x2) + "\n")
-            print("x2 = ", "{:.4}".format(x1) + "\n")
+            print("x1 = {:.4}".format(x2) + "\n")
+            print("x2 = {:.4}".format(x1) + "\n")
         else:
-            print("x1 = ", "{:.4}".format(x1) + "\n")
-            print("x2 = ", "{:.4}".format(x2) + "\n")
+            print("x1 = {:.4}".format(x1) + "\n")
+            print("x2 = {:.4}".format(x2) + "\n")
 
 
 def task8():
@@ -95,14 +95,14 @@ def task8():
     # по 2 закону Ньютона сила трения, дествующая на тело равна f = ma; из уравнения пути для равноускоренного движения s = start_v*t - (a*t**2)/2 выразим ускорение a:
     a = (2*(start_v*t - s))/t**2
     f = m * a
-    print("Сила трения, действующая на тело = ", "{:.4}".format(f))
+    print("Сила трения, действующая на тело = {:.4} Н".format(f))
 
 
 def task9():
     credit = float(input("введите сумму кредита\n"))
     rate = float(input("введите ставку кредита в % годовых\n"))
     summ = (credit / 100 * rate)
-    print("Сумма начисленных процентов = ", "{:.4}".format(summ))
+    print("Сумма начисленных процентов = {:.4}".format(summ))
 
 
 try:
