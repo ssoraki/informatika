@@ -18,3 +18,13 @@ def task1():
         print('это число оканчивается на нечётную цифру')
     else:
         print('это число оканчивается на чётную цифру')
+
+def task6():
+    kroliki,krolikinew = 1,0
+    YEAR = 12
+    for months in range(0, YEAR, 2):
+        krolikinew += 2*kroliki
+        kroliki = krolikinew
+    print(kroliki)
+
+task6()
