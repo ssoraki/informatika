@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 def task1():
     while True:
         k = 0
@@ -14,6 +16,54 @@ def task1():
             print('Число является квадратом целого числа')
         elif k == 0:
             print('Число не является квадратом целого числа')
+
+def task2_fucntion(x):
+    if x < 3:
+        return (x ** 3) - (3 * x) + 9
+    else:
+        return 2 * (x ** 2) + (5 * x) - 6
+
+def task2():
+    a = int(input("введите а\n"))
+    b = int(input("введите b\n"))
+
+    x_values = list(range(a, b + 1))
+    y_values = [task2_fucntion(x) for x in range(a, b + 1)]
+
+    plt.plot(x_values, y_values)
+    plt.show()
+
+def task8():
+    n = int(input("введите n\n"))
+    x = float(input("введите x\n"))
+    sum = float(0)
+    for i in range(0, n + 1):
+        sum += ((x ** 2) + n)
+    print("сумма = {:.4f}".format(sum))
+
+def task9():
+    result1 = 0
+    for i in range(1, 8 + 1):
+        for j in range(1, i + 1):
+            result1 += (j + i) ** 2
+    print("result 1 = {:.4f}".format(result1))
+
+    result2 = 1
+    for i in range(1, 5 + 1):
+        for j in range(1, i + 1):
+            result2 *= j
+    print("result 2 = {:.4f}".format(result2))
+
+    result3 = 0
+    for i in range(1, 8 + 1):
+        result3_2 = 1
+        for j in range(1, 2 * i + 1):
+            for k in range(1, 2 + 1):
+                if (2 * (j ** i) - (k ** j)) == 0: # при определенных значениях получается 0
+                    print(j, " ", k)                # из-за этого ответ всегда = 0
+                result3_2 *= (2 * (j ** i) - (k ** j))
+        result3 += result3_2
+    print("result 3 = {:.4f}".format(result3))
 
 
 task1()
