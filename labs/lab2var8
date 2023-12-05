@@ -17,6 +17,8 @@ def task1():
         elif k == 0:
             print('Число не является квадратом целого числа')
 
+
+
 def task2_fucntion(x):
     if x < 3:
         return (x ** 3) - (3 * x) + 9
@@ -33,6 +35,71 @@ def task2():
     plt.plot(x_values, y_values)
     plt.show()
 
+
+
+def calculate_digit_sum(number):
+    return sum(int(digit) for digit in str(number))
+
+def print_odd_numbers_with_digit_sum(three_digit_numbers, target_sum):
+    for number in three_digit_numbers:
+        if number % 2 != 0 and calculate_digit_sum(number) > target_sum:
+            print(number)
+
+def task5():
+    try:
+        # Ввод трех трехзначных чисел
+        num1 = int(input("Введите первое трехзначное число: "))
+        num2 = int(input("Введите второе трехзначное число: "))
+        num3 = int(input("Введите третье трехзначное число: "))
+
+        # Ввод значения суммы цифр
+        target_sum = int(input("Введите значение суммы цифр: "))
+
+        # Проверка на трехзначность чисел
+        if 100 <= num1 <= 999 and 100 <= num2 <= 999 and 100 <= num3 <= 999:
+            three_digit_numbers = [num1, num2, num3]
+            print("Нечетные числа, сумма цифр которых больше", target_sum, ":")
+            print_odd_numbers_with_digit_sum(three_digit_numbers, target_sum)
+        else:
+            print("Одно из введенных чисел не является трехзначным.")
+
+    except ValueError:
+        print("Ошибка ввода. Введите трехзначные числа и значение суммы цифр целыми числами.")
+
+
+
+def calculate_months_to_pass(subject_attempts, consultations_per_month, attempts_per_lab):
+    months = 0
+
+    while subject_attempts > 0:
+        months += 1
+        subject_attempts -= consultations_per_month
+
+        if subject_attempts <= 0:
+            break
+
+        subject_attempts += (attempts_per_lab - 1)
+        attempts_per_lab = max(1, attempts_per_lab - 1)
+
+    return months
+
+def task6():
+    try:
+        subject_attempts = int(input("Введите начальное количество попыток: "))
+        consultations_per_month = int(input("Введите количество консультаций в месяц: "))
+        attempts_per_lab = int(input("Введите количество попыток на лабораторной работе: "))
+
+        if subject_attempts <= 0 or consultations_per_month <= 0 or attempts_per_lab <= 0:
+            print("Введите положительные значения.")
+        else:
+            months_to_pass = calculate_months_to_pass(subject_attempts, consultations_per_month, attempts_per_lab)
+            print(f"Количество месяцев до сдачи предмета: {months_to_pass}")
+
+    except ValueError:
+        print("Ошибка ввода. Введите целые положительные числа.")
+
+
+
 def task8():
     n = int(input("введите n\n"))
     x = float(input("введите x\n"))
@@ -40,6 +107,8 @@ def task8():
     for i in range(0, n + 1):
         sum += ((x ** 2) + n)
     print("сумма = {:.4f}".format(sum))
+
+
 
 def task9():
     result1 = 0
