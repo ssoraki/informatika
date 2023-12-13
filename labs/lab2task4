@@ -11,3 +11,12 @@ if __name__ == "__main__":
         y = random.randint(3, 6)
         answer = figure(x, y)
         print(f'{answer} for [{x};{y}]')
+
+if __name__ == "__main__":
+    #for i in range(20):
+        x = int(input('введите x \n'))
+        y = int(input('введите y \n'))
+        #answer = figure(x, y)
+        #print(f'{answer} for [{x};{y}]')
+        if f1:
+            print('good')
