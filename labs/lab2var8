@@ -1,4 +1,7 @@
 import matplotlib.pyplot as plt
+import matplotlib.patches
+import matplotlib.path
+from matplotlib.lines import Line2D
 
 def task1():
     while True:
@@ -68,11 +71,6 @@ def task3():
 
 
 def task4():
-    import matplotlib.pyplot as plt
-    import matplotlib.patches
-    import matplotlib.path
-    from matplotlib.lines import Line2D
-    
     figure_1 = 0
     figure_2 = 0
     
