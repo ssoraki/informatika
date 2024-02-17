@@ -242,27 +242,6 @@ def delete_directory():
         print(f"Ошибка при удалении директории {dirname}: {e}")
 
 
-def task8():
-    data_dir = "data"
-    if not os.path.exists(data_dir):
-        os.mkdir(data_dir)
-    os.chdir(data_dir)
-
-    while True:
-        display_menu()
-        choice = input("Введите номер действия (или 'q' для выхода): ")
-
-        if choice == '1':
-            create_file()
-        elif choice == '2':
-            delete_file()
-        elif choice == '3':
-            create_directory()
-        elif choice == '4':
-            delete_directory()
-        elif choice.lower() == 'q':
-            print("Неверный выбор. Попробуйте снова.")
-
 
 def task6():
     file_path = "variant8.txt"
@@ -334,6 +313,30 @@ def task7():
             new_file.write(f"Contens of {file_name}")
 
     print("Файловая структура успешно создана.")
+
+
+
+def task8():
+    data_dir = "data"
+    if not os.path.exists(data_dir):
+        os.mkdir(data_dir)
+    os.chdir(data_dir)
+
+    while True:
+        display_menu()
+        choice = input("Введите номер действия (или 'q' для выхода): ")
+
+        if choice == '1':
+            create_file()
+        elif choice == '2':
+            delete_file()
+        elif choice == '3':
+            create_directory()
+        elif choice == '4':
+            delete_directory()
+        elif choice.lower() == 'q':
+            print("Неверный выбор. Попробуйте снова.")
+
 
 
 if __name__ == "__main__":
