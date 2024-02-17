@@ -11,20 +11,19 @@ def print_char_list(array):
 
 def task1():
     n = int(input("Введите длину массива "))
-    array = ['a'] * n  # создает массив символов длиной n
+    array = ['a'] * n
     for i in range(n):
-        input_value = str(input("Введите элемент массива "))  # в питоне по сути нет chr,
-        # это почти то же самое что и str
-        if len(input_value) > 1:  # char это 1 символ, так что обрезаем, если символов больше
+        input_value = str(input("Введите элемент массива "))
+        if len(input_value) > 1:
             input_value = input_value[:1]
         array[i] = input_value
     print_char_list(array)
     numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    try:  # ошибка будет если символ не имеет представления в виде int (например int("1") == 1)
+    try: 
         for i in range(n):
             if int(array[i]) in numbers:
                 array[i] = "*"
-    except:  # если ошибка, то просто пропускаем и идем дальше по циклу
+    except:
         pass
     print("\n")
     print_char_list(array)
@@ -128,8 +127,7 @@ def task2():
 
 
 def task3():
-    file_path = "text.txt"  # если файл не в проекте, то нужен полный путь до файла вида C:\
-    # (не помню какой из слешей \/)
+    file_path = "text.txt"
     input_value = str(input("Введите текст:\n"))
     with open(file_path, "w") as file:
         file.write(input_value)
@@ -162,7 +160,7 @@ def task4():
     print_string_list(physical_terms)
     while True:
         choice = random_choise(physical_terms)
-        input_value = str(input("Для получания случайного элемента массива нажмите Enter: "))
+        input_value = str(input("Для получения случайного элемента массива нажмите Enter: "))
         if input_value == "":
             print(choice)
         else:
@@ -318,6 +316,25 @@ def task6():
     plt.ylabel("Значение")
     plt.title("Графики массивов данных")
     plt.show()
+
+
+def task7():
+    file_path = "directory.txt"
+
+    with open(file_path, "r") as file:
+        paths = [line.strip() for line in file.readlines()]
+
+    for path in paths:
+        folder = os.path.split(path)[0]
+        file_name = os.path.split(path)[1]
+        if folder and not os.path.exists(folder):
+            os.makedirs(folder)
+
+        with open(path, "w") as new_file:
+            new_file.write(f"Contens of {file_name}")
+
+    print("Файловая структура успешно создана.")
+
 
 if __name__ == "__main__":
     task2()
