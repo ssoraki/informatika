@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches
 import matplotlib.path
 from matplotlib.lines import Line2D
+import math
+
 
 def task1():
     while True:
@@ -12,7 +14,7 @@ def task1():
         else:
             print('Число оканчивается на нечётную цифру')
         for sqr in range(1, 999):
-            if sqr**2 == num:
+            if sqr ** 2 == num:
                 k += 1
         if k > 0:
             print('Число является квадратом целого числа')
@@ -25,6 +27,7 @@ def task2_fucntion(x):
         return (x ** 3) - (3 * x) + 9
     else:
         return 2 * (x ** 2) + (5 * x) - 6
+
 
 def task2():
     a = int(input("введите а\n"))
@@ -40,29 +43,29 @@ def task2():
 def task3():
     def decimal_in_new_numeral_system(number, base):
         result = ''
-        integer_part = int(number)  #целая часть числа
-        fraction_part = number - integer_part  #дробная часть числа
-    
-        #переводим целую часть числа в новую систему счисления
+        integer_part = int(number)  # целая часть числа
+        fraction_part = number - integer_part  # дробная часть числа
+
+        # переводим целую часть числа в новую систему счисления
         while integer_part > 0:
             remainder = integer_part % base
             result = str(remainder) + result
             integer_part = integer_part // base
-    
-        #разделитель для дробной части
+
+        # разделитель для дробной части
         result += '.'
 
-        #переводим дробную часть числа в новую систему счисления
-        precision = 10  #точность перевода (до 10 знаков)
+        # переводим дробную часть числа в новую систему счисления
+        precision = 10  # точность перевода (до 10 знаков)
         while fraction_part > 0 and precision > 0:
             fraction_part *= base
             int_part = int(fraction_part)
             result += str(int_part)
             fraction_part -= int_part
             precision -= 1
-    
+
         return result
-    
+
     decimal_number = float(input("Введите десятичное число: "))
     new_base = int(input("Введите основание новой системы счисления: "))
 
@@ -73,9 +76,9 @@ def task3():
 def task4():
     figure_1 = 0
     figure_2 = 0
-    
-    #рисуем фигуры
-    
+
+    # рисуем фигуры
+
     def drawLines(axes):
         line1 = Line2D([-1, 0], [3, 5], color="k")
         line2 = Line2D([0, 2], [5, 4], color="k")
@@ -89,7 +92,7 @@ def task4():
         axes.add_line(line4)
         axes.add_line(line5)
         axes.add_line(line6)
-    
+
         line7 = Line2D([2, 4], [-1, 1], color="k")
         line8 = Line2D([4, 5], [-3, -4], color="k")
         line9 = Line2D([5, 7], [-4, -3], color="k")
@@ -98,20 +101,20 @@ def task4():
         axes.add_line(line8)
         axes.add_line(line9)
         axes.add_line(line10)
-    
+
     def drawArc(axes):
-        arc1 = matplotlib.patches.Arc((-1, 1),4,4,theta1=90,theta2=180)
-        arc2 = matplotlib.patches.Arc((-1, 1),4,4,theta1=270,theta2=360)
-        arc3 = matplotlib.patches.Arc((4, -1),4,4,theta1=0,theta2=90)
-        arc4 = matplotlib.patches.Arc((4, -1),4,4,theta1=180,theta2=270)
+        arc1 = matplotlib.patches.Arc((-1, 1), 4, 4, theta1=90, theta2=180)
+        arc2 = matplotlib.patches.Arc((-1, 1), 4, 4, theta1=270, theta2=360)
+        arc3 = matplotlib.patches.Arc((4, -1), 4, 4, theta1=0, theta2=90)
+        arc4 = matplotlib.patches.Arc((4, -1), 4, 4, theta1=180, theta2=270)
         axes.add_patch(arc1)
         axes.add_patch(arc2)
         axes.add_patch(arc3)
         axes.add_patch(arc4)
         plt.text(0.6, -0.3, "")
-    
-    #определим, попадает ли точка в фигуру, и в какую
-    
+
+    # определим, попадает ли точка в фигуру, и в какую
+
     def f1(x, y):
         if 2 * y + x > 10:
             return False
@@ -121,7 +124,7 @@ def task4():
             return False
         else:
             return True
-    
+
     def f2(x, y):
         if (x - 1) ** 2 + (y - 1) ** 2 < 4:
             return False
@@ -129,9 +132,9 @@ def task4():
             return False
         elif y - 2 * x > 1:
             return False
-         else:
-             return True
-    
+        else:
+            return True
+
     def f3(x, y):
         if (x - 4) ** 2 + (y + 1) ** 2 > 4:
             return False
@@ -145,44 +148,45 @@ def task4():
             return False
         else:
             return True
-    
+
     def f4(x, y):
         if y - 0.8 * x < -1.4:
-            return  False
+            return False
         elif y + 3 * y > 10:
             return False
         else:
             return True
+
     def f5(x, y):
         if (x + 4) ** 2 + (y - 1) ** 2 > 4:
-            return  False
+            return False
         elif y - x > -3:
             return False
         else:
             return True
-    
+
     if __name__ == "__main__":
         x = int(input('введите x \n'))
         y = int(input('введите y \n'))
-    
+
         plt.xlim(-4, 8)
         plt.ylim(-5, 6)
         plt.grid()
-    
+
         axes = plt.gca()
         axes.set_aspect("equal")
-    
+
         drawLines(axes)
         drawArc(axes)
-    
+
         plt.scatter(x, y, color='red')
-    
+
         plt.show()
-    
+
         if -4 < x <= 2 and y >= 1:
             if f1:
                 figure_1 += 1
-        elif -4 < x <=2 and y < 1:
+        elif -4 < x <= 2 and y < 1:
             if f2:
                 figure_1 += 1
         elif 2 <= x < 4:
@@ -193,7 +197,7 @@ def task4():
         elif x >= 4:
             if f3:
                 figure_2 += 1
-    
+
         if figure_1 > 0:
             print('Точка входит в первую фигуру')
         elif figure_2 > 0:
@@ -211,7 +215,7 @@ def task5():
         m = int(input("Введите число m: "))
         numbers = []
 
-        if not(100 <= num1 <= 999 and 100 <= num2 <= 999 and 100 <= num3 <= 999):
+        if not (100 <= num1 <= 999 and 100 <= num2 <= 999 and 100 <= num3 <= 999):
             print('Одно или несколько чисел не являются трёхзначными.')
         else:
             if num1 % 2 != 0 and ((num1 % 10) + ((num1 // 10) % 10) + (num1 // 100) > m):
@@ -248,12 +252,13 @@ def task6():
         print(months)
 
 
+
 def task8():
     n = int(input("введите n\n"))
     x = float(input("введите x\n"))
     sum = float(0)
     for i in range(0, n + 1):
-        sum += ((x ** 2) + n)
+        sum += (x + n)**2
     print("сумма = {:.4f}".format(sum))
 
 
@@ -276,11 +281,26 @@ def task9():
         result3_2 = 1
         for j in range(1, 2 * i + 1):
             for k in range(1, 2 + 1):
-                if (2 * (j ** i) - (k ** j)) == 0: # при определенных значениях получается 0
-                    print(j, " ", k)                # из-за этого ответ всегда = 0
                 result3_2 *= (2 * (j ** i) - (k ** j))
         result3 += result3_2
     print("result 3 = {:.4f}".format(result3))
 
+
+def task10(x):
+    return x**x + 10**x - x*math.sin(x)
+
+def ploshyadPryamougolnika():
+    summ = 0
+    for i in range(a, b, h):
+        summ += task10(i)*h
+    return summ
+
+
+a = 1
+b = 2
+n = int(input('введите количество прямоугольников\n'))
+h = (b-a)/n
+
+print(ploshyadPryamougolnika())
 
 task1()
